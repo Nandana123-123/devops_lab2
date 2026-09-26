@@ -1,11 +1,11 @@
 name: Maven Build
 
 on:
- push:
-   branches: ["main"]
-   
- pull_request:
-   branches: ["main"]
+  push:
+    branches: ["main"]
+
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,13 +15,12 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v6
 
-      - name: set up JDK
+      - name: Set up JDK
         uses: actions/setup-java@v6
         with:
-            java-version: '17'
-            distribution: 'temurin'
-            cache: maven
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
       - name: Build with Maven
         run: mvn --batch-mode clean package
-		
